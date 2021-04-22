@@ -13,13 +13,13 @@ int read_db(char *filename) {
         if ((fp = fopen(filename, "r")) == NULL)
                 return -1;
 
-        char local_item[100], cat[100];
+        char local_exercise[100], cat[100];
         int exercisenum, mins, laps, sets, reps, calorieburn, resistance;
         double mile_distance;
-        for (num_items = 0; fscanf(fp, "%d %s %s %d %d %lf %d %d %d %d ", &exercisenum, cat, local_item, &mins, &laps, &mile_distance, &sets, &reps, &resistance, &calorieburn) != EOF; num_items++) {
+        for (num_items = 0; fscanf(fp, "%d %s %s %d %d %lf %d %d %d %d ", &exercisenum, cat, local_exercise, &mins, &laps, &mile_distance, &sets, &reps, &resistance, &calorieburn) != EOF; num_items++) {
                 db[num_items] = malloc(sizeof(exercise));
                 db[num_items]->exercisenum = exercisenum;
-                strcpy(db[num_items]->name, local_item);
+                strcpy(db[num_items]->name, local_exercise);
                 db[num_items]->category = str_to_category(cat);
                 db[num_items]->mins = mins;
                 db[num_items]->laps = laps;
