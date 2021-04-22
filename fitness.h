@@ -13,6 +13,7 @@ typedef struct {
         int sets;
         int reps;
         int resistance;
+        int calorieburn;
 } exercise;
 
 //read/write files
