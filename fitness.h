@@ -7,7 +7,7 @@ typedef struct {
         int exercisenum;
         category category;
         char name[MAX_EXER_CHARS];
-        double mins;
+        int mins;
         int laps;
         double distance;
         int sets;
