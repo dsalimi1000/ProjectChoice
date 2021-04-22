@@ -9,7 +9,7 @@ typedef struct {
         char name[MAX_EXER_CHARS];
         int mins;
         int laps;
-        double distance;
+        double mile_distance;
         int sets;
         int reps;
         int resistance;
