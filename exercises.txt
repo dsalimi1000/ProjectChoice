@@ -1,15 +1,15 @@
 1 cardio walk 15 2 .5 0 0 0 120
-2 cardio walk 30 4 1 0 0 0 180
-3 cardio run 15 4 1 0 0 0 240
-4 cardio run 30 8 2 0 0 0 320
-5 bike spinbike 30 12 8 0 0 3 580
-6 bike spinbike 60 24 16 0 0 4 800
-7 bike roadbike 45 20 15 0 0 1 720
-8 bike mountainbike 35 7 0 0 6 750
-9 swim breaststroke 20 15 1 0 0 0 215
+2 cardio walk 30 4 1.0 0 0 0 180
+3 cardio run 15 4 1.0 0 0 0 240
+4 cardio run 30 8 2.0 0 0 0 320
+5 bike spinbike 30 12 8.0 0 0 3 580
+6 bike spinbike 60 24 16.0 0 0 4 800
+7 bike roadbike 45 20 15.0 0 0 1 720
+8 bike mountainbike 35 0 7.0 0 0 6 750
+9 swim breaststroke 20 15 1.0 0 0 0 215
 10 swim backstroke 20 12 .6 0 0 0 200
 11 swim butterfly 20 18 1.2 0 0 0 310
-12 swim freestyle 20 15 1 0 0 0 250
+12 swim freestyle 20 15 1.0 0 0 0 250
 13 weightlift deadlift 12 0 0 6 6 200 75
 14 weightlift chestpress 6 0 0 3 8 75 35
 15 weightlift tricep_pushdown 6 0 0 3 8 55 27

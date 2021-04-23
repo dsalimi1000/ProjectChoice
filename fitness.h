@@ -3,6 +3,7 @@
 #define MAX_EXER_COMPLT 3
 
 typedef enum { cardio, bike, swim, weightlift } category;
+
 typedef struct {
         int exercisenum;
         category category;
@@ -19,33 +20,34 @@ typedef struct {
 //read/write files
 int read_db(char *filename);
 int write_db(char *filename);
-
+category str_to_category(char *s);
+char *category_to_str(category c);//
 //Store user data: create struct ‘exerciser’ with name, age, weight, gender, height
 //Create user
-add_user(string name, int age, double weight, char gender, double height);
+//add_user(string name, int age, double weight, char gender, double height);
 
 //Update user data:  any user status can be modified while running the program 
-update_user_age(int index, int age);
-update_user_weight(int index, double weight);
-update_user_height(int index, double height);
+//update_user_age(int index, int age);
+//update_user_weight(int index, double weight);
+//update_user_height(int index, double height);
 
 //Calculate caloric intake(the following are void functions which use user inputted data to calculate -> weight, age, height, gender
-Gain weight: ()
+/*Gain weight: ()
 get gain_wt
 Lose weight: ()
 get lose_wt
 Maintain weight:()
 get metabolic_wt
-
+*/
 //Calculate approximate body mass index
-Body Fat ()
-Get body_fat
+//Body Fat ()
+//Get body_fat
 
 //Display exercises: saved file with all exercises
-//The assigned number is the general estimated calorie burn (i.e. walking=200 per hour, running=600 per hour)
+void display_exercises();
 //Log user exercises and calorie burn
 //Add to array lists--exercise array, calorie array
-add_exercise(int minutes, string exercise);
+//add_exercise(int minutes, string exercise);
 //Save data: write file
 //Write file saves the file titled in the users name and appends .txt at the end of the name (i.e. Susan.txt)
 //Data saved includes name, age, weight, gender, height, exercises performed (array), total calories burned (array)

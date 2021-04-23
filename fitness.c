@@ -29,7 +29,7 @@ int read_db(char *filename) {
                 db[num_items]->resistance = resistance;
                 db[num_items]->calorieburn = calorieburn;
         }
-          fclose(fp);
+        fclose(fp);
         return num_items;
 }
 
@@ -43,3 +43,44 @@ int read_db(char *filename) {
         fclose(fp);
         return 0;
 }*/
+
+void display_exercises() {
+	for (int i = 0; i < num_items; i++) {
+		printf("%d %s %s %d %d %lf %d %d %d %d\n", db[i]->exercisenum, category_to_str(db[i]->category), db[i]->name, db[i]->mins, db[i]->laps, db[i]->mile_distance, db[i]->sets, db[i]->reps, db[i]->resistance, db[i]->calorieburn);
+
+	}
+}
+
+char *category_to_str(category c) {
+	        switch(c) {
+	                case 0:
+	                        return "cardio";
+	                        break;
+	                case 1:
+		                return "bike";
+		                break;
+		        case 2:
+		                return "swim";
+		                break;
+		        case 3:
+		                return "weightlift";
+		                break;
+		        default:
+		                return 0;
+     }
+}
+	
+category str_to_category(char *s) {
+        if (strcmp(s, "cardio") == 0 )
+                return cardio;
+        else if (strcmp(s, "bike") == 0 )
+	        return bike;
+	else if (strcmp(s, "swim") == 0 )
+	        return swim;
+	else if (strcmp(s, "weightlift") == 0 )
+	        return weightlift;
+	else
+	        return 0;
+}
+
+
