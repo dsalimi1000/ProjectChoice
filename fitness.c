@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include "fitness.h"
 
 static exercise *db[MAX_EXERCISES];
@@ -70,6 +71,14 @@ exercise *exercise_complt(int exercisenum) {
 	}
 	return 0;
 }
+
+double calc_body_mass_index(double weight_lbs, double height_ins) {
+	//double height = pow(height_ins, 2);
+	double height = 4225;
+	double bmi = (weight_lbs/height)*703;
+	return bmi;
+}
+
 
 char *category_to_str(category c) {
 	        switch(c) {
