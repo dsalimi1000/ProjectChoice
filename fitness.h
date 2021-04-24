@@ -33,12 +33,13 @@ int read_users(char *filename);
 int write_db(char *filename);
 int write_users(char *filename);
 category str_to_category(char *s);
-char *category_to_str(category c);//
+char *category_to_str(category c);
 //Store user data: create struct ‘exerciser’ with name, age, weight, gender, height
 //Create user
 //add_user(string name, int age, double weight, char gender, double height);
-
 //Update user data:  any user status can be modified while running the program
+int get_num_users();
+char get_user_name();
 void add_user(int age, double weight, double height, char *name, char *gender); 
 void swap_user(int user);
 void update_user_age(int age);
@@ -60,7 +61,6 @@ void display_exercises();
 void display_users();
 exercise *find_exercise_num(int exercisenum);
 exercise *exercise_complt(int exercisenum);
-double calc_body_mass_index(double weight_lbs, double height_ins);
 //Log user exercises and calorie burn
 //Add to array lists--exercise array, calorie array
 //add_exercise(int minutes, string exercise);

@@ -80,6 +80,11 @@ int write_users(char *filename) {
         fclose(fp);
         return 0;
 }
+
+int get_num_users() {
+	return num_users;
+}
+
 void display_exercises() {
 	for (int i = 0; i < num_items; i++) {
 		printf("%d %s %s %d %d %.1lf %d %d %d %d\n", db[i]->exercisenum, category_to_str(db[i]->category), db[i]->name, db[i]->mins, db[i]->laps, db[i]->mile_distance, db[i]->sets, db[i]->reps, db[i]->resistance, db[i]->calorieburn);
@@ -91,6 +96,10 @@ void display_users() {
 		printf("%d %.2lf %.2lf %s %s\n", users[i]->age, users[i]->weight, users[i]->height, users[i]->name, users[i]->gender);
 
 	}
+}
+
+char get_user_name() {
+	return users[currentUser]->name;
 }
 
 void update_user_age(int age){
@@ -143,10 +152,10 @@ double body_fat(){
 }
 
 void add_user(int age, double weight, double height, char *name, char *gender){
-		if(num_users==5){
+		/*if(num_users==5){
 		printf("MAX USERS REACHED");
-		}
-		else{ 
+		}*/
+		 
 		users[num_users] = malloc(sizeof(user));
 		users[num_users]->age = age;
 		users[num_users]->weight = weight;
@@ -154,8 +163,7 @@ void add_user(int age, double weight, double height, char *name, char *gender){
 		strcpy(users[num_users]->name, name);
 		strcpy(users[num_users]->gender, gender);
 		num_users++;
-		}
-	
+		
 }
 
 exercise *find_exercise_num(int exercisenum) {
@@ -177,14 +185,6 @@ exercise *exercise_complt(int exercisenum) {
 	}
 	return 0;
 }
-
-double calc_body_mass_index(double weight_lbs, double height_ins) {
-	//double height = pow(height_ins, 2);
-	double height = 4225;
-	double bmi = (weight_lbs/height)*703;
-	return bmi;
-}
-
 
 char *category_to_str(category c) {
 	        switch(c) {
