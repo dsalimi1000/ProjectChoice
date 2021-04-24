@@ -52,8 +52,7 @@ int main(int argc, char **argv) {
 }
 
 void print_menu() {
-        printf("1. Add New User \n2. Display Saved Exercises \n3. View Exercise Choices \n4. Swap User \n5. Display BMI
-and Caloric Intake \n6. \n7. \n8. \n9. Save\n10. Exit\n\n");
+        printf("1. Add New User \n2. Display Saved Exercises \n3. View Exercise Choices \n4. Swap User \n5. Display BMI and Caloric Intake \n6. \n7. \n8. \n9. Save\n10. Exit\n\n");
 }
 
 int get_menu_selection(int num) {
@@ -61,6 +60,8 @@ int get_menu_selection(int num) {
 	int age, num_userX;
 	double weight, height;
 	char user_name[20], gender[2], ans[2];
+	exercise *ret;
+	int exercisenum;
 	switch(num) {
 		case 1:
 			num_userX = get_num_users();
@@ -82,8 +83,17 @@ int get_menu_selection(int num) {
 				printf("New user %s was added.\n", user_name);
 			}
 			break;
-			case 3:
+		case 2:
 			display_exercises();
+			printf("Enter the exercise number for the exercise you completed: \n");
+                        scanf("%d", &exercisenum);
+                        ret = find_exercise_num(exercisenum);
+                        if (ret != 0) {
+                                exercise_complt(exercisenum);
+                                printf("\nYou saved exercise %s and burned %d calories.\n", ret->name, ret->calorieburn);
+                        } else
+                                printf("Exercise number not found.");
+                        break;
 		case 3:
 			display_exercises();
 			break;
@@ -128,7 +138,10 @@ int get_menu_selection(int num) {
 		case 7:
 			//write_users(filename);
 			printf("Your profile was saved.");
-			break;		
+			break;	
+		case 8:
+			return 0;
+			break;
 		default:
 			printf("Please enter a valid menu option.");
 	}		
