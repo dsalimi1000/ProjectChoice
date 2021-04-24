@@ -46,9 +46,29 @@ int read_db(char *filename) {
 
 void display_exercises() {
 	for (int i = 0; i < num_items; i++) {
-		printf("%d %s %s %d %d %lf %d %d %d %d\n", db[i]->exercisenum, category_to_str(db[i]->category), db[i]->name, db[i]->mins, db[i]->laps, db[i]->mile_distance, db[i]->sets, db[i]->reps, db[i]->resistance, db[i]->calorieburn);
+		printf("%d %s %s %d %d %.1lf %d %d %d %d\n", db[i]->exercisenum, category_to_str(db[i]->category), db[i]->name, db[i]->mins, db[i]->laps, db[i]->mile_distance, db[i]->sets, db[i]->reps, db[i]->resistance, db[i]->calorieburn);
 
 	}
+}
+
+exercise *find_exercise_num(int exercisenum) {
+	for (int i = 0; i < num_items; i++) {
+		if (db[i]->exercisenum == exercisenum)
+			return db[i];
+	}
+	return 0;
+}
+
+exercise *exercise_complt(int exercisenum) {
+	for (int i = 0; i < num_items; i++) {
+		if (db[i]->exercisenum == exercisenum) {
+			exercises_complt++;
+			int j = exercises_complt-1;
+			complt[j] = db[i];
+			return complt[j];
+		}
+	}
+	return 0;
 }
 
 char *category_to_str(category c) {

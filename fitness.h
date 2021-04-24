@@ -45,6 +45,8 @@ get metabolic_wt
 
 //Display exercises: saved file with all exercises
 void display_exercises();
+exercise *find_exercise_num(int exercisenum);
+exercise *exercise_complt(int exercisenum);
 //Log user exercises and calorie burn
 //Add to array lists--exercise array, calorie array
 //add_exercise(int minutes, string exercise);
