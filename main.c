@@ -79,7 +79,7 @@ int get_menu_selection(int num) {
 		case 4:
 			printf("Enter the user number to switch to(1-5):  ");
 			scanf("%d", &usernum);
-			swap_user(usernum);
+			swap_user(usernum-1);
 			break;
 		case 5: 
 			printf("\n Metabolic Rate:  ");
