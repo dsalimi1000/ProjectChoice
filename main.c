@@ -14,24 +14,16 @@ int main(int argc, char **argv) {
 	num_items = read_db("exercises.txt");
 	
 	display_users();
-	/*char name[36] = "Daud";
-	int age = 21;
-	double weight = 195.5;
-	char gender[2] = "m";
-	double height = 6.2;
-	write_users("users.txt");
-	printf("%.0lf\n", metabolic_wt());
-	printf("%.0lf\n", gain_wt());
-	printf("%.0lf\n", lose_wt());
-	printf("%.2lf\n", body_fat());
-	*/
 	char input_str[10];
 	int menu_input;
 	printf("Welcome to the Fitness Tracker!\n\n");
 	printf("Enter user first name. If you are new, type 'new': ");
 	fgets(input_str, 10, stdin);
-	if (strcmp(input_str, "new") == 0)
+	if ((strcmp(input_str, "new"))==1)
 		printf("\nWelcome back!\n");
+	else{
+		get_menu_selection(1);
+	}
 	
 	do {
 		printf("\n      MENU\n");
@@ -52,19 +44,20 @@ int main(int argc, char **argv) {
 }
 
 void print_menu() {
-	printf("1. Add New User \n2. Display Saved Exercises \n3. View Exercise Choices \n4. \n5. \n6. \n7. Save User Profile \n8. Quit\n9. Exit\n\n");
+	printf("1. Add New User \n2. Display Saved Exercises \n3. View Exercise Choices \n4. Swap User \n5. Display BMI and Caloric Intake \n6. \n7. \n8.  \n9. Save\n10. Exit\n\n");
 }
 
 int get_menu_selection(int num) {
-	//char filename[] = "test.txt";
 	int age, num_userX;
 	double weight, height;
 	char user_name[20], gender[2];
+	int usernum = 0;
 	switch(num) {
 		case 1:
 			num_userX = get_num_users();
-			printf("numusers = %d", num_userX);
+			printf("numusers = %d\n", num_userX);
 			if(num_userX == 5) {
+				printf("%\n");
 				printf("MAX USERS REACHED. Please delete a user first.");
 			} else {
 				printf("Please enter the user's first name: ");
@@ -81,11 +74,29 @@ int get_menu_selection(int num) {
 				printf("New user %s was added.\n", user_name);
 			}
 			break;
-		case 7:
-			//write_users(filename);
-			printf("Your profile was saved.");
+		case 3:
+			display_exercises();
+		case 4:
+			printf("Enter the user number to switch to(1-5):  ");
+			scanf("%d", &usernum);
+			swap_user(usernum);
+			break;
+		case 5: 
+			printf("\n Metabolic Rate:  ");
+			printf("%lf", metabolic_wt());
+			printf("\n Lose a pound a week:  ");
+			printf("%lf", lose_wt());
+			printf("\n Gain a pound a week:  ");
+			printf("%lf", gain_wt());
+			printf("\n Body fat percentage:  ");
+			printf("%lf", body_fat());
+			printf("\n");
 			break;
 		case 9:
+			write_users("users.txt");
+			printf("Your profile was saved.");
+			break;
+		case 10:
 			exit(0);
 			break;
 		

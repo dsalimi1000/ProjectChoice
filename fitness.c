@@ -115,7 +115,13 @@ void update_user_height(double height){
 }
 
 void swap_user(int user){
-	 currentUser = user;
+	if(user<0||user>4){
+	}
+	else{
+	currentUser = user;
+	printf("\n You are now signed in as:  ");
+	printf("%s", (users[currentUser]->name));
+	}
 }
 
 double gain_wt(){
@@ -163,6 +169,7 @@ void add_user(int age, double weight, double height, char *name, char *gender){
 		strcpy(users[num_users]->name, name);
 		strcpy(users[num_users]->gender, gender);
 		num_users++;
+		currentUser = users[num_users];
 		
 }
 
