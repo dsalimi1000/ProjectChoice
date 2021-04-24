@@ -1,6 +1,7 @@
 #define MAX_EXERCISES 20
 #define MAX_EXER_CHARS 32
 #define MAX_EXER_COMPLT 3
+#define MAX_USERS 5
 
 
 typedef enum { cardio, bike, swim, weightlift } category;
@@ -18,34 +19,45 @@ typedef struct {
         int calorieburn;
 } exercise;
 
+typedef struct {
+	char name[36];
+	int age;
+	double weight;
+	char gender[2];
+	double height;
+} user;
+
 //read/write files
 int read_db(char *filename);
+int read_users(char *filename);
 int write_db(char *filename);
+int write_users(char *filename);
 category str_to_category(char *s);
 char *category_to_str(category c);//
 //Store user data: create struct ‘exerciser’ with name, age, weight, gender, height
 //Create user
 //add_user(string name, int age, double weight, char gender, double height);
 
-//Update user data:  any user status can be modified while running the program 
-//update_user_age(int index, int age);
-//update_user_weight(int index, double weight);
-//update_user_height(int index, double height);
+//Update user data:  any user status can be modified while running the program
+void add_user(int age, double weight, double height, char *name, char *gender); 
+void swap_user(int user);
+void update_user_age(int age);
+void update_user_weight(double weight);
+void update_user_height(double height);
 
 //Calculate caloric intake(the following are void functions which use user inputted data to calculate -> weight, age, height, gender
-/*Gain weight: ()
-get gain_wt
-Lose weight: ()
-get lose_wt
-Maintain weight:()
-get metabolic_wt
-*/
+
+double gain_wt();
+double lose_wt();
+double metabolic_wt();
+
 //Calculate approximate body mass index
-//Body Fat ()
-//Get body_fat
+
+double body_fat();
 
 //Display exercises: saved file with all exercises
 void display_exercises();
+void display_users();
 exercise *find_exercise_num(int exercisenum);
 exercise *exercise_complt(int exercisenum);
 double calc_body_mass_index(double weight_lbs, double height_ins);
