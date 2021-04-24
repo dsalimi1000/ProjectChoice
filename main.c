@@ -51,9 +51,7 @@ int main(int argc, char **argv) {
 	return 0;
 }
 
-void print_menu() {
-	printf("1. Add New User\n2. Display Saved Exercises\n3. View Exercise Choices\n4. \n5. \n6. Update Age, Weight, or Height\n7. Save User Profile\n8. Quit\n9. Exit\n\n");
-}
+
 
 int get_menu_selection(int num) {
 	//char filename[] = "test.txt";
@@ -107,11 +105,7 @@ int get_menu_selection(int num) {
 		case 7:
 			//write_users(filename);
 			printf("Your profile was saved.");
-			break;
-		case 9:
-			exit(0);
-			break;
-		
+			break;		
 		default:
 			printf("Please enter a valid menu option.");
 	}		
