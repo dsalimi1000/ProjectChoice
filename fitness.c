@@ -12,6 +12,9 @@ static exercise *complt[MAX_EXER_COMPLT];
 static int exercises_complt = 0;
 static int currentUser = 0;
 
+int get_num(){
+	return num_users;	
+	}
 int read_db(char *filename) {
         FILE *fp;
         if ((fp = fopen(filename, "r")) == NULL)
@@ -115,7 +118,7 @@ void update_user_height(double height){
 }
 
 void swap_user(int user){
-	if(user<0||user>4){
+	if(user<0||user>num_users-1){
 	}
 	else{
 	currentUser = user;
@@ -158,9 +161,7 @@ double body_fat(){
 }
 
 void add_user(int age, double weight, double height, char *name, char *gender){
-		/*if(num_users==5){
-		printf("MAX USERS REACHED");
-		}*/
+		
 		 
 		users[num_users] = malloc(sizeof(user));
 		users[num_users]->age = age;

@@ -28,21 +28,20 @@ int main(int argc, char **argv) {
 	char input_str[10];
 	int menu_input;
 	printf("Welcome to the Fitness Tracker!\n\n");
-	printf("Enter user first name. If you are new, type 'new': ");
-	fgets(input_str, 10, stdin);
-	if (strcmp(input_str, "new") == 0)
-		printf("\nWelcome back!\n");
-	
+	int num = get_num();
+	if(num==0){
+		get_menu_selection(1);
+	}
 	do {
 		printf("\n      MENU\n");
 		print_menu();
 		printf("Choose a menu option (i.e 1): ");
 		scanf("%d", &menu_input);
-		if (menu_input < 1 || menu_input > 10)
+		if (menu_input < 1 || menu_input > 9)
 			printf("Please enter a valid menu option.\n");
 		else
 			get_menu_selection(menu_input);
-	} while (menu_input != 9);
+	} while (menu_input != 8);
 
 
 
@@ -52,7 +51,7 @@ int main(int argc, char **argv) {
 }
 
 void print_menu() {
-        printf("1. Add New User \n2. Display Saved Exercises \n3. View Exercise Choices \n4. Swap User \n5. Display BMI and Caloric Intake \n6. \n7. \n8. \n9. Save\n10. Exit\n\n");
+        printf("1. Add New User \n2. View Exercise Choices \n3. Display Saved Exercises\n4. Select User \n5. Display BMI and Caloric Intake \n6. Update user data\n7. save \n8. quit.\n\n");
 }
 
 int get_menu_selection(int num) {
@@ -62,12 +61,13 @@ int get_menu_selection(int num) {
 	char user_name[20], gender[2], ans[2];
 	exercise *ret;
 	int exercisenum;
+	int usernum = 0;
 	switch(num) {
 		case 1:
 			num_userX = get_num_users();
-			printf("numusers = %d", num_userX);
+			printf("numusers = %d\n", num_userX);
 			if(num_userX == 5) {
-				printf("MAX USERS REACHED. Please delete a user first.");
+				printf("\n   MAX USERS REACHED. Please delete a user first.");
 			} else {
 				printf("Please enter the user's first name: ");
 				scanf("%s", user_name);
@@ -103,40 +103,40 @@ int get_menu_selection(int num) {
 			swap_user(usernum-1);
 			break;
 		case 5: 
-			printf("\n Metabolic Rate:  ");
-			printf("%lf", metabolic_wt());
+			printf("\n Metabolic Rate:       ");
+			printf("%.2lf", metabolic_wt());
 			printf("\n Lose a pound a week:  ");
-			printf("%lf", lose_wt());
+			printf("%.2lf", lose_wt());
 			printf("\n Gain a pound a week:  ");
-			printf("%lf", gain_wt());
+			printf("%.2lf", gain_wt());
 			printf("\n Body fat percentage:  ");
-			printf("%lf", body_fat());
+			printf("%.2lf", body_fat());
 			printf("\n");
 			break;	
 		case 6:
 			printf("Would you like to update your age? Y or N. ");
 			scanf("%s", ans);
-			if (strcmp(ans, "Y") == 0) {
+			if (strcmp(ans, "Y") == 0||strcmp(ans, "y") == 0) {
 				printf("\nEnter age: ");
 				scanf("%d", &age);
 				update_user_age(age);
 			}
 			printf("Would you like to update your weight? Y or N. ");
 			scanf("%s", ans);
-			if (strcmp(ans, "Y") == 0) {
+			if (strcmp(ans, "Y") == 0||strcmp(ans, "y") == 0) {
 				printf("\nEnter weight: ");
 				scanf("%lf", &weight);
 				update_user_weight(weight);
 			}
 			printf("Would you like to update your height? Y or N. ");
 			scanf("%s", ans);
-			if (strcmp(ans, "Y") == 0) {
+			if (strcmp(ans, "Y") == 0||strcmp(ans, "y") == 0) {
 				printf("\nEnter height: ");
 				scanf("%lf", &height);
 				update_user_height(height);
 			}
 		case 7:
-			//write_users(filename);
+			write_users("users.txt");
 			printf("Your profile was saved.");
 			break;	
 		case 8:

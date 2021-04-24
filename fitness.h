@@ -40,6 +40,7 @@ char *category_to_str(category c);
 //Update user data:  any user status can be modified while running the program
 int get_num_users();
 char get_user_name();
+int get_num();
 void add_user(int age, double weight, double height, char *name, char *gender); 
 void swap_user(int user);
 void update_user_age(int age);
