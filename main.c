@@ -79,6 +79,7 @@ int get_menu_selection(int num) {
 				printf("New user %s was added.\n", user_name);
 			}
 			break;
+<<<<<<< HEAD
 		case 6:
 			printf("Would you like to update your age? Y or N. ");
 			scanf("%s", ans);
@@ -101,6 +102,25 @@ int get_menu_selection(int num) {
 				scanf("%lf", &height);
 				update_user_height(height);
 			}
+=======
+		case 3:
+			display_exercises();
+		case 4:
+			printf("Enter the user number to switch to(1-5):  ");
+			scanf("%d", &usernum);
+			swap_user(usernum-1);
+			break;
+		case 5: 
+			printf("\n Metabolic Rate:  ");
+			printf("%lf", metabolic_wt());
+			printf("\n Lose a pound a week:  ");
+			printf("%lf", lose_wt());
+			printf("\n Gain a pound a week:  ");
+			printf("%lf", gain_wt());
+			printf("\n Body fat percentage:  ");
+			printf("%lf", body_fat());
+			printf("\n");
+>>>>>>> 976921458b1bdd4fe6f3adebc839a95583a2a7b1
 			break;
 		case 7:
 			//write_users(filename);
