@@ -51,7 +51,10 @@ int main(int argc, char **argv) {
 	return 0;
 }
 
-
+void print_menu() {
+        printf("1. Add New User \n2. Display Saved Exercises \n3. View Exercise Choices \n4. Swap User \n5. Display BMI
+and Caloric Intake \n6. \n7. \n8. \n9. Save\n10. Exit\n\n");
+}
 
 int get_menu_selection(int num) {
 	//char filename[] = "test.txt";
@@ -79,7 +82,6 @@ int get_menu_selection(int num) {
 				printf("New user %s was added.\n", user_name);
 			}
 			break;
-<<<<<<< HEAD
 		case 6:
 			printf("Would you like to update your age? Y or N. ");
 			scanf("%s", ans);
@@ -102,7 +104,6 @@ int get_menu_selection(int num) {
 				scanf("%lf", &height);
 				update_user_height(height);
 			}
-=======
 		case 3:
 			display_exercises();
 		case 4:
@@ -120,7 +121,6 @@ int get_menu_selection(int num) {
 			printf("\n Body fat percentage:  ");
 			printf("%lf", body_fat());
 			printf("\n");
->>>>>>> 976921458b1bdd4fe6f3adebc839a95583a2a7b1
 			break;
 		case 7:
 			//write_users(filename);
