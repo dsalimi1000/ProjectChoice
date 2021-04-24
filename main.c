@@ -52,14 +52,14 @@ int main(int argc, char **argv) {
 }
 
 void print_menu() {
-	printf("1. Add New User \n2. Display Saved Exercises \n3. View Exercise Choices \n4. \n5. \n6. \n7. Save User Profile \n8. Quit\n9. Exit\n\n");
+	printf("1. Add New User\n2. Display Saved Exercises\n3. View Exercise Choices\n4. \n5. \n6. Update Age, Weight, or Height\n7. Save User Profile\n8. Quit\n9. Exit\n\n");
 }
 
 int get_menu_selection(int num) {
 	//char filename[] = "test.txt";
 	int age, num_userX;
 	double weight, height;
-	char user_name[20], gender[2];
+	char user_name[20], gender[2], ans[2];
 	switch(num) {
 		case 1:
 			num_userX = get_num_users();
@@ -79,6 +79,29 @@ int get_menu_selection(int num) {
 				scanf("%s", gender);
 				add_user(age, weight, height, user_name, gender);
 				printf("New user %s was added.\n", user_name);
+			}
+			break;
+		case 6:
+			printf("Would you like to update your age? Y or N. ");
+			scanf("%s", ans);
+			if (strcmp(ans, "Y") == 0) {
+				printf("\nEnter age: ");
+				scanf("%d", &age);
+				update_user_age(age);
+			}
+			printf("Would you like to update your weight? Y or N. ");
+			scanf("%s", ans);
+			if (strcmp(ans, "Y") == 0) {
+				printf("\nEnter weight: ");
+				scanf("%lf", &weight);
+				update_user_weight(weight);
+			}
+			printf("Would you like to update your height? Y or N. ");
+			scanf("%s", ans);
+			if (strcmp(ans, "Y") == 0) {
+				printf("\nEnter height: ");
+				scanf("%lf", &height);
+				update_user_height(height);
 			}
 			break;
 		case 7:
