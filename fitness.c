@@ -67,8 +67,8 @@ int write_exercises_complt(char *filename) {
         FILE *fp;
         if ((fp = fopen(filename, "w")) == NULL)
                 return -1;
-        for (int i = 0; i < num_items; i++) {
-                fprintf(fp, "%d %s %s %d %d %.2lf %d %d %d %d\n", db[i]->exercisenum, category_to_str(db[i]->category), db[i]->name, db[i]->mins, db[i]->laps, db[i]->mile_distance, db[i]->sets, db[i]->reps, db[i]->resistance, db[i]->calorieburn);
+        for (int i = 0; i < exercises_complt; i++) {
+                fprintf(fp, "%d %s %s %d %d %.2lf %d %d %d %d\n", complt[i]->exercisenum, category_to_str(complt[i]->category), complt[i]->name, complt[i]->mins, complt[i]->laps, complt[i]->mile_distance, complt[i]->sets, complt[i]->reps, complt[i]->resistance, complt[i]->calorieburn);
         }
         fclose(fp);
         return 0;

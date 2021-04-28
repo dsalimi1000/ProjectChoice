@@ -88,7 +88,7 @@ int get_menu_selection(int num) {
                         ret = find_exercise_num(exercisenum);
                         if (ret != 0) {
                                 exercise_complt(exercisenum);
-				write_users("saved_exercises.txt");
+				write_exercises_complt("saved_exercises.txt");
                                 printf("\nYou saved exercise %s and burned %d calories.\n", ret->name, ret->calorieburn);
                         } else
                                 printf("Exercise number not found.");
