@@ -13,7 +13,6 @@ int main(int argc, char **argv) {
 	num_users = read_users("users.txt");
 	num_items = read_db("exercises.txt");
 	
-	display_users();
 	/*char name[36] = "Daud";
 	int age = 21;
 	double weight = 195.5;
@@ -37,7 +36,7 @@ int main(int argc, char **argv) {
 		print_menu();
 		printf("Choose a menu option (i.e 1): ");
 		scanf("%d", &menu_input);
-		if (menu_input < 1 || menu_input > 9)
+		if (menu_input < 1 || menu_input > 8)
 			printf("Please enter a valid menu option.\n");
 		else
 			get_menu_selection(menu_input);
@@ -65,7 +64,6 @@ int get_menu_selection(int num) {
 	switch(num) {
 		case 1:
 			num_userX = get_num_users();
-			printf("numusers = %d\n", num_userX);
 			if(num_userX == 5) {
 				printf("\n   MAX USERS REACHED. Please delete a user first.");
 			} else {
@@ -90,12 +88,13 @@ int get_menu_selection(int num) {
                         ret = find_exercise_num(exercisenum);
                         if (ret != 0) {
                                 exercise_complt(exercisenum);
+				write_users("saved_exercises.txt");
                                 printf("\nYou saved exercise %s and burned %d calories.\n", ret->name, ret->calorieburn);
                         } else
                                 printf("Exercise number not found.");
                         break;
 		case 3:
-			display_exercises();
+			display_saved_exercises();
 			break;
 		case 4:
 			printf("Enter the user number to switch to(1-5):  ");

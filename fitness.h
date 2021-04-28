@@ -30,7 +30,7 @@ typedef struct {
 //read/write files
 int read_db(char *filename);
 int read_users(char *filename);
-int write_db(char *filename);
+int write_exercises_complt(char *filename);
 int write_users(char *filename);
 category str_to_category(char *s);
 char *category_to_str(category c);
@@ -59,6 +59,7 @@ double body_fat();
 
 //Display exercises: saved file with all exercises
 void display_exercises();
+void display_saved_exercises();
 void display_users();
 exercise *find_exercise_num(int exercisenum);
 exercise *exercise_complt(int exercisenum);

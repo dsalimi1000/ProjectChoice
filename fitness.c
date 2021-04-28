@@ -63,16 +63,17 @@ int read_users(char *filename) {
         return num_users;
 }
 
-/*int write_db(char *filename) {
+int write_exercises_complt(char *filename) {
         FILE *fp;
         if ((fp = fopen(filename, "w")) == NULL)
                 return -1;
         for (int i = 0; i < num_items; i++) {
-                fprintf(fp, "%d %s %s %c %d %.2lf %d\n", db[i]->exercisenum, category_to_str(db[i]->category), db[i]->name, db[i]->mins, db[i]->laps, db[i]->mile_distance, db[i]->sets, db[i]->reps, db[i]->resistance, db[i]->calorieburn);
+                fprintf(fp, "%d %s %s %d %d %.2lf %d %d %d %d\n", db[i]->exercisenum, category_to_str(db[i]->category), db[i]->name, db[i]->mins, db[i]->laps, db[i]->mile_distance, db[i]->sets, db[i]->reps, db[i]->resistance, db[i]->calorieburn);
         }
         fclose(fp);
         return 0;
-}*/
+}
+
 int write_users(char *filename) {
         FILE *fp;
         if ((fp = fopen(filename, "w")) == NULL)
@@ -94,9 +95,10 @@ void display_exercises() {
 
 	}
 }
-void display_users() {
-	for (int i = 0; i < num_users; i++) {
-		printf("%d %.2lf %.2lf %s %s\n", users[i]->age, users[i]->weight, users[i]->height, users[i]->name, users[i]->gender);
+
+void display_saved_exercises() {
+	for (int i = 0; i < exercises_complt; i++) {
+		printf("%d %s %s %d %d %.1lf %d %d %d %d\n", complt[i]->exercisenum, category_to_str(complt[i]->category), complt[i]->name, complt[i]->mins, complt[i]->laps, complt[i]->mile_distance, complt[i]->sets, complt[i]->reps, complt[i]->resistance, complt[i]->calorieburn);
 
 	}
 }
